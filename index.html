@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+	<input placeholder="Name" v-model="text"/>
+	<button class="btn btn-success" @click="add(text)">+</button>
+	<hr>
+	<ul>
+	<li v-for="record in records">
+	{{record}}
+	<button @click="remove(record)">-</button>
+	</li>
+	</ul>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+	  records:[],
+	  text:"",
+      },
+	  methods:{
+	  	add: function (name)
+		{
+			app.records.push(name)
+		},
+		remove: function(name)
+		{
+		var arr = app.records;
+		var index = arr.indexOf(name);
+		arr.splice(index,1);
+		}
+	  }
+	  
+    })
+  </script>
+</body>
+</html>
