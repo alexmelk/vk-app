@@ -11,12 +11,14 @@
 
 <body>
   <div id="app">
-	<div class="mx-auto form-inline" style="width: 300px; margin-top: 10px;">
-	  <input class="form-control w-75 mr-2" placeholder="Name" v-model="findText"/>
-	  <button class="btn btn-success" @click="show(findText)">Show</button>
-    </div>
-	<hr>
-	</ul>
+
+	<nav class="navbar navbar-light bg-light">
+		<div class="form-inline">
+		  <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" v-model="findText">
+		  <button class="btn btn-outline-success my-2 my-sm-0" @click="show(findText)">Search</button>
+		</div>
+	  </nav>
+
 	<div v-for="image in images">
 		<img class="d-block mx-auto w-50" style="margin: 10px;" alt="img" :src='image' ></img>
 	</div>
